@@ -1,0 +1,30 @@
+[battery]
+command=echo "  $(acpi | awk '{print substr($4, 1,length($4)-1)}')"
+interval=5
+color=#444444
+
+[volume]
+command=echo "󰕾 $(amixer | awk 'NR==6{print $5}')"
+interval=1
+color=#444444
+
+[ip]
+command=echo "󰩟 $(ip a | grep inet | awk 'NR == 3{print substr($2, 1, length($2)-3)}')"
+interval=60
+color=#444444
+
+[date]
+command=echo "󰃭 $(date | awk '{print $1, $2, $3}')"
+interval=once
+color=#444444
+
+[time]
+command=echo "󰥔 $(date | awk '{print $4,$5}')"
+interval=1
+color=#444444
+
+[internet_speed_download]
+command=echo "󰇚 $(speedtest |grep Download| awk '{print int($2)}' && exit) Mb/s"
+interval=300
+color=#444444
+
